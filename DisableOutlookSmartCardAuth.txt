@@ -1,0 +1,26 @@
+If you have enabled smart card authentication for Outlook Anywhere and would like to disable same for any business requirements or due to any problems encountered after enabling smart card authentication, you can use this script to revert back the changes to disable smart card authentication for Outlook Anywhere in exchange server 2013.
+
+
+Follow the Instructions below to perform the task - AYOR...
+
+*Save the downloaded script as ‘DisableOutlookSmartCardAuth.ps1’ on your desired location (e.g.: ‘<Exchange install drive>:\Program Files\Microsoft\Exchange Server\V15\Scripts\’)
+
+*Launch Exchange Management Shell and navigate to above saved path (e.g.: ‘<Exchange install drive>:\Program Files\Microsoft\Exchange Server\V15\Scripts\’)
+
+*Run ‘.\DisableOutlookSmartCardAuth.ps1’
+
+*Post running the script, delete and then recreate IIS Binding (...443). And ensure a valid SSL certificate is selected (IIS –> Default Web Site –> Bindings… –‘https_ipport=0.0.0.0:443’)--Reboot the Exchange Server.
+
+*Repeat the same on all required exchange servers with CAS role.
+
+*Also navigate to ‘HKEY_CURRENT_USER\Software\Microsoft\Office\15.0\Outlook\RPC’ and remove ‘EnableSmartcard’ – DWORD-32bit value, from client PC.
+
+ 
+Caution:
+
+Changes are made in IIS, application host configurations and registries… (BACKUP Recommended)
+
+Please be aware that this disables Client Certificate authentication on IIS root/server-level and set related settings to default.
+
+
+More info: https://social.technet.microsoft.com/wiki/contents/articles/36604.exchange-server-2013-disable-smart-card-authentication-for-outlook-anywhere.aspx 
