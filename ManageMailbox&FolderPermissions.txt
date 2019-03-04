@@ -1,0 +1,7 @@
+This simple PS script helps to check and remove permissions of a user on another mailbox or all of its folders.
+
+You can either choose to 'Get' information of the folders that were granted with any access rights or choose to remove the same access rights (on confirmation) from all folders.
+
+Or choose the other option to check 'Get' and remove(on confirmation) mailbox permissions (delegations) of one user grated over another user mailbox.
+
+Warning: Once confirmed on first prompt while removing permissions, all the selected accesses will be revoked without any further notice on confirmation.
